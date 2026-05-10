@@ -63,6 +63,7 @@ jobs:
 
         # pulls `transformers`, `torch`, `onnx`, `huggingface_hub` (heavy, only needed for the build phase, not for the Lambda image).
       - name: Install deployment dependencies
+        run: uv sync --group deployment
         # TODO: sync ONLY the `deployment` group dependencies
 
         # Runs `prepare_model_from_hf.py`, downloads the HF weights into `model/zeroshot/`.
