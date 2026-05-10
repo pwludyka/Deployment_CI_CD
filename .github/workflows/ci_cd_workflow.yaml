@@ -16,6 +16,10 @@ jobs:
    name: checks_and_tests
    runs-on: ubuntu-latest
    steps:
+     - name: Checkout code repo
+       # given: checks out your repository code so the workflow can access it
+       uses: actions/checkout@v4
+
      - name: Show run info
        run: |
           echo "SHA: ${{ github.sha }}"
@@ -23,10 +27,6 @@ jobs:
 
      - name: Show region
        run: echo "Deploying to ${{ env.AWS_REGION }}"
-
-     - name: Checkout code repo
-       # given: checks out your repository code so the workflow can access it
-       uses: actions/checkout@v4
 
      - name: Setup uv
        uses: astral-sh/setup-uv@v7
